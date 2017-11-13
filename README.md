@@ -1,0 +1,2 @@
+# pyHashrate
+pyHashrate
