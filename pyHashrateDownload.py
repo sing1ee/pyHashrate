@@ -15,7 +15,7 @@ with open("HashRate.json", 'a+') as w:
             cnt += 1
             r = requests.get('https://btc.com/stats/api/realtime/poolHashrate?count=12')
             data = r.json()
-            if 'data' in data:
+            if 'data' not in data:
                 continue
             rows = data['data']
             w.write(json.dumps(rows) + "\n")
