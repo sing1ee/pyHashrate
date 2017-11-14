@@ -1,0 +1,12 @@
+<uwsgi>
+    <pythonpath>.</pythonpath>
+    <module>pyHashrate</module>
+    <callable>app</callable>
+    <socket>0.0.0.0:8021</socket>
+    <master/>
+    <processes>4</processes>
+    <memory-report/>
+    <daemonize>uwsgi.log</daemonize>
+    <pidfile>uwsgi.pid</pidfile>
+    <uid>www</uid>
+</uwsgi>
