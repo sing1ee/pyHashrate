@@ -22,9 +22,5 @@ def hash():
     return render_template('hash.html')
 
 
-@app.route('/<name>')
-def hello_user(name):
-    return "hello {} !".format(name)
-
 if __name__=='__main__':
     manager.run()
