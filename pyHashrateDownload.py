@@ -24,7 +24,7 @@ with open("HashRate.json", 'a+') as w:
                 row['created_at'] = now
                 print row
                 hr = HashrateStat()
-                hr.update(row)
+                hr.update(**row)
                 hrs.append(hr)
             save_all(hrs)
         except:
