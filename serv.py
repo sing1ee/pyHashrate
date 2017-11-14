@@ -22,13 +22,12 @@ manager.add_command('db',MigrateCommand)
 @app.route('/HashChart')
 def hash():
     ret = query_last_n_days(3)
-    ret_dict = [(name, list(group)) for name, group in groupby(ret, lambda p:p.relayed_by)]
-    legends = ret_dict.keys()
+    ret_list = [(name, list(group)) for name, group in groupby(ret, lambda p:p.relayed_by)]
+    legends = map(lambda x: x[0], ret_list)
     series = []
 
     x_axis = []
-    for key in legends:
-        group = ret_dict[key]
+    for (key, group) in ret_list:
         sorted(group, lambda x: x.created_at)
         x_axis = map(lambda x: x.created_at, group)
         series.append({'name': key, 'type': 'line', 'stack': '算力', 'data': map(lambda x: x.hashrate, group)})
