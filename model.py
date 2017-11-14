@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from config import db
-from collections import namedtuple
+from sqlalchemy import asc
+import time
 
 
 class HashrateStat(db.Model):
@@ -23,7 +24,7 @@ class HashrateStat(db.Model):
     lucky = db.Column(db.Numeric(36, 14))
     cur2max_percent = db.Column(db.Numeric(36, 14))
     index = db.Column(db.Integer)
-    created_at = db.Column(db.Integer)
+    created_at = db.Column(db.Integer, index=True)
 
     def __repr__(self):
         return '<HashrateStat %r>' % self.relayed_by
@@ -43,3 +44,9 @@ def save(hashrate):
 def save_all(hashrates):
     db.session.add_all(hashrates)
     db.session.commit()
+
+
+def query_last_n_days(days = 1):
+    return HashrateStat.query\
+        .filter(HashrateStat.created_at > int(time.time()) - 86400 * days)\
+        .order_by(asc(HashrateStat.created_at)).all()

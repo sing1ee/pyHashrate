@@ -4,6 +4,8 @@ from flask import render_template
 from config import app, db
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate,MigrateCommand
+from model import query_last_n_days
+from itertools import groupby
 import sys
 
 
@@ -19,7 +21,19 @@ manager.add_command('db',MigrateCommand)
 
 @app.route('/HashChart')
 def hash():
-    return render_template('hash.html')
+    ret = query_last_n_days(3)
+    ret_dict = [(name, list(group)) for name, group in groupby(ret, lambda p:p.relayed_by)]
+    legends = ret_dict.keys()
+    series = []
+
+    x_axis = []
+    for key in legends:
+        group = ret_dict[key]
+        sorted(group, lambda x: x.created_at)
+        x_axis = map(lambda x: x.created_at, group)
+        series.append({'name': key, 'type': 'line', 'stack': '算力', 'data': map(lambda x: x.hashrate, group)})
+
+    return render_template('hash.html', legends=legends, series=series, x_axis=x_axis)
 
 
 if __name__=='__main__':

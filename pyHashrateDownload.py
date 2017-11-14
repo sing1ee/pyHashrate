@@ -22,7 +22,6 @@ with open("HashRate.json", 'a+') as w:
             hrs = []
             for row in rows:
                 row['created_at'] = now
-                print row
                 hr = HashrateStat()
                 hr.update(**row)
                 hrs.append(hr)
