@@ -5,6 +5,7 @@ from collections import namedtuple
 import requests
 import json
 import time
+import traceback
 
 cnt = 0
 with open("HashRate.json", 'a+') as w:
@@ -19,6 +20,7 @@ with open("HashRate.json", 'a+') as w:
             for row in map(lambda x: namedtuple('', x), rows):
                 row['created_at'] = now
             save_all(rows)
-            time.sleep(60)
         except:
+            traceback.print_exc()
             pass
+        time.sleep(60)
