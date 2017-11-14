@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from config import db
+from collections import namedtuple
 
 
 class HashrateStat(db.Model):
@@ -26,6 +27,10 @@ class HashrateStat(db.Model):
 
     def __repr__(self):
         return '<HashrateStat %r>' % self.relayed_by
+
+
+def convert(dict_value):
+    return namedtuple('HashrateStat', dict_value)
 
 
 def save(hashrate):

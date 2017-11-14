@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from model import save_all
-from collections import namedtuple
+from model import save_all, convert
 import requests
 import json
 import time
@@ -22,7 +21,7 @@ with open("HashRate.json", 'a+') as w:
             now = int(time.time())
             for row in rows:
                 row['created_at'] = now
-            save_all(map(lambda x: namedtuple('HashrateStat', x), rows))
+            save_all(map(lambda x: convert(x), rows))
         except:
             traceback.print_exc()
             pass
