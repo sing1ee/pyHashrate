@@ -23,7 +23,14 @@ manager.add_command('db',MigrateCommand)
 def hash():
     ret = query_last_n_days(3)
     ret_list = [(name, list(group)) for name, group in groupby(ret, lambda p:p.relayed_by)]
-    legends = map(lambda x: x[0], ret_list)
+    all_legends = map(lambda x: x[0], ret_list)
+    legends = []
+    filt = set()
+    for l in all_legends:
+        if l in filt:
+            continue
+        legends.append(l)
+        filt.add(l)
     series = []
 
     x_axis = []
