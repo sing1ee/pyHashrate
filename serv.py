@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from config import SERVER_HOST, SERVER_PORT, app, db
+from flask import render_template
+from config import app, db
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate,MigrateCommand
-from model import HashrateStat
 import sys
-import os
 
 
 reload(sys)
@@ -18,9 +17,9 @@ manager=Manager(app)
 manager.add_command('db',MigrateCommand)
 
 
-@app.route('/')
-def hello():
-    return 'Hello'
+@app.route('/HashChart')
+def hash():
+    return render_template('static/hash.html')
 
 
 @app.route('/<name>')
