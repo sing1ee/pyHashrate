@@ -5,8 +5,9 @@
     <title>Hashrate</title>
 </head>
 <body>
-<div id="main" style="width: 600px;height:400px;"></div>
+<div id="main" style="width: 100%;height: 400px;"></div>
 <script src="{{ url_for('static', filename='echarts.simple.min.js') }}"></script>
+<script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
@@ -20,7 +21,7 @@
             trigger: 'axis'
         },
         legend: {
-            data: {{ legends }}
+            data: []
         },
         grid: {
             left: '3%',
@@ -36,16 +37,35 @@
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: {{ x_axis }}
+            data: []
         },
         yAxis: {
             type: 'value'
         },
-        series: {{ series }}
+        series: [{
+            name: '',
+            type: 'line',
+            data: []
+        }]
     };
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+    // 异步加载数据
+    $.get('data.json').done(function (data) {
+        // 填入数据
+        myChart.setOption({
+            legend: {
+                data: data.legends
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: data.x_axis
+            },
+            series: data.series
+        });
+    });
 </script>
 </body>
 </html>

@@ -8,6 +8,7 @@ from model import query_last_n_days
 from itertools import groupby
 import simplejson as json
 import collections
+import time
 import sys
 
 
@@ -40,7 +41,7 @@ def hash():
     return render_template('hash.html', legends=json.dumps(legends, ensure_ascii=True).replace('"', '\''), series=series, x_axis=x_axis)
 
 
-@app.route('/data_json')
+@app.route('/data.json')
 def data_json():
     ret = query_last_n_days(3)
     group_all = collections.defaultdict(list)
@@ -53,7 +54,7 @@ def data_json():
     for key in legends:
         group = group_all[key]
         sorted(group, key = lambda x: x.created_at)
-        x_axis = map(lambda x: x.created_at, group)
+        x_axis = map(lambda x: time.strftime("%d日%H时", time.localtime(x.created_at)), group)
         series.append({'name': key, 'type': 'line', 'stack': '算力', 'data': map(lambda x: x.hashrate, group)})
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})

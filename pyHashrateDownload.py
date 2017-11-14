@@ -29,4 +29,4 @@ with open("HashRate.json", 'a+') as w:
         except:
             traceback.print_exc()
             pass
-        time.sleep(60)
+        time.sleep(60*60)
