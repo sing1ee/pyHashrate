@@ -21,6 +21,7 @@ with open("HashRate.json", 'a+') as w:
             now = int(time.time())
             for row in rows:
                 row['created_at'] = now
+                print row
             save_all(map(lambda x: convert(x), rows))
         except:
             traceback.print_exc()
