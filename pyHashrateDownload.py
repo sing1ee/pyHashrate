@@ -17,9 +17,9 @@ with open("HashRate.json", 'a+') as w:
             rows = r.json()
             w.write(json.dumps(rows) + "\n")
             now = int(time.time())
-            for row in map(lambda x: namedtuple('HashrateStat', x), rows):
+            for row in rows:
                 row['created_at'] = now
-            save_all(rows)
+            save_all(map(lambda x: namedtuple('HashrateStat', x), rows))
         except:
             traceback.print_exc()
             pass
