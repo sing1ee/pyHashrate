@@ -19,7 +19,7 @@ manager.add_command('db',MigrateCommand)
 
 @app.route('/HashChart')
 def hash():
-    return render_template('static/hash.html')
+    return render_template('/static/hash.html')
 
 
 @app.route('/<name>')
