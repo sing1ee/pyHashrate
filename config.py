@@ -7,7 +7,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 SERVER_HOST = "SERVER_HOST"
 SERVER_PORT = "SERVER_PORT"
 DATABASE_URL = "DATABASE_URL"
-CONFIG_PATH = "/Users/zhangcheng/.pyhashrate_env"
+CONFIG_PATH = "/root/.pyhashrate_env"
 
 app = Flask(__name__)
 
