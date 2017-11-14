@@ -28,9 +28,11 @@ class HashrateStat(db.Model):
     def __repr__(self):
         return '<HashrateStat %r>' % self.relayed_by
 
+    def update(self, **entries):
+        self.__dict__.update(entries)
 
-def convert(dict_value):
-    return namedtuple('HashrateStat', dict_value)
+
+
 
 
 def save(hashrate):

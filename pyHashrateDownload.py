@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from model import save_all, convert
+from model import HashrateStat, save_all
 import requests
 import json
 import time
@@ -19,10 +19,14 @@ with open("HashRate.json", 'a+') as w:
             rows = data['data']
             w.write(json.dumps(rows) + "\n")
             now = int(time.time())
+            hrs = []
             for row in rows:
                 row['created_at'] = now
                 print row
-            save_all(map(lambda x: convert(x), rows))
+                hr = HashrateStat()
+                hr.update(row)
+                hrs.append(hr)
+            save_all(hrs)
         except:
             traceback.print_exc()
             pass
