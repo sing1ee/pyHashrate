@@ -22,6 +22,7 @@ class HashrateStat(db.Model):
     lucky = db.Column(db.Numeric(36, 14))
     cur2max_percent = db.Column(db.Numeric(36, 14))
     index = db.Column(db.Integer)
+    created_at = db.Column(db.Integer)
 
     def __repr__(self):
         return '<HashrateStat %r>' % self.relayed_by
