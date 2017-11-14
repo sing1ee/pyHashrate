@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from model import save_all
+from collections import namedtuple
 import requests
 import json
 import time
@@ -7,8 +9,16 @@ import time
 cnt = 0
 with open("HashRate.json", 'a+') as w:
     while True:
-        print cnt
-        cnt += 1
-        r = requests.get('https://btc.com/stats/api/realtime/poolHashrate?count=12')
-        w.write(json.dumps(r.json()) + "\n")
-        time.sleep(60)
+        try:
+            print cnt
+            cnt += 1
+            r = requests.get('https://btc.com/stats/api/realtime/poolHashrate?count=12')
+            rows = r.json()
+            w.write(json.dumps(rows) + "\n")
+            now = int(time.time())
+            for row in map(lambda x: namedtuple('', x), rows):
+                row['created_at'] = now
+            save_all(rows)
+            time.sleep(60)
+        except:
+            pass

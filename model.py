@@ -26,3 +26,13 @@ class HashrateStat(db.Model):
 
     def __repr__(self):
         return '<HashrateStat %r>' % self.relayed_by
+
+
+def save(hashrate):
+    db.session.add(hashrate)
+    db.session.commit()
+
+
+def save_all(hashrates):
+    db.session.add_all(hashrates)
+    db.session.commit()
