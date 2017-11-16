@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from config import db
-from sqlalchemy import asc
+from sqlalchemy import asc, text
 import time
 
 
@@ -70,7 +70,17 @@ def save_all(hashrates):
     db.session.commit()
 
 
-def query_last_n_days(days = 1):
+def query_last_n_days(days=3):
     return HashrateStat.query\
         .filter(HashrateStat.created_at > int(time.time()) - 86400 * days)\
         .order_by(asc(HashrateStat.created_at)).all()
+
+
+def query_buy(start=0):
+    sql = text('select max(price), group_label from osc_otc where is_buy=TRUE and created_at>%d group by group_label order by group_label asc;' % start)
+    return db.engine.execute(sql)
+
+
+def query_sell(start=0):
+    sql = text('select min(price), group_label from osc_otc where is_buy=FALSE and created_at>%d group by group_label order by group_label asc;' % start)
+    return db.engine.execute(sql)
