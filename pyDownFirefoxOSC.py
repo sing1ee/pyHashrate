@@ -48,4 +48,4 @@ with open("firefoxOSC.json", 'a+') as w:
         except:
             traceback.print_exc()
             pass
-        time.sleep(60*10)
+        time.sleep(60*2)
