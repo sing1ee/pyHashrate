@@ -78,9 +78,9 @@ def query_last_n_days(days=3):
 
 def query_buy(start=0):
     sql = text('select max(price), group_label from osc_otc where is_buy=TRUE and created_at>%d group by group_label order by group_label asc;' % start)
-    return db.engine.execute(sql)
+    return map(lambda x: (x[0], x[1]), db.engine.execute(sql))
 
 
 def query_sell(start=0):
     sql = text('select min(price), group_label from osc_otc where is_buy=FALSE and created_at>%d group by group_label order by group_label asc;' % start)
-    return db.engine.execute(sql)
+    return map(lambda x: (x[0], x[1]), db.engine.execute(sql))
