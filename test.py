@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-from model import HashrateStat, OSCOTC, save_all
 import requests
 import json
 import time
@@ -18,6 +15,7 @@ sell_payload = {"crypto_currency": "OSC",
                "offset": 0,
                "limit": 8,
                }
+
 cnt = 0
 with open("firefoxOSC.json", 'a+') as w:
     while True:
@@ -26,25 +24,18 @@ with open("firefoxOSC.json", 'a+') as w:
             cnt += 1
             br = requests.post('https://otc.firefoxotc.com/api/market/list', data=buy_payload)
             bdata = br.json()
-            print bdata
             sr = requests.post('https://otc.firefoxotc.com/api/market/list', data=sell_payload)
+            print sr
             sdata = sr.json()
+            print bdata
+            print sdata
             if 'data' not in bdata or 'lists' not in bdata['data']\
                     or 'data' not in sdata or 'lists' not in sdata['data']:
                 continue
             rows = bdata['data']['lists']
             rows.append(sdata['data']['lists'])
             w.write(json.dumps(rows) + "\n")
-            now = int(time.time())
-            hrs = []
-            for row in rows:
-                row['created_at'] = now
-                row['group_label'] = now
-                hr = OSCOTC()
-                hr.update(**row)
-                hrs.append(hr)
-            save_all(hrs)
         except:
             traceback.print_exc()
             pass
-        time.sleep(60*10)
+        time.sleep(10)
