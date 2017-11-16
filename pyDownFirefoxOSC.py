@@ -37,8 +37,10 @@ with open("firefoxOSC.json", 'a+') as w:
             now = int(time.time())
             hrs = []
             for row in rows:
+                row['oid'] = row['id']
                 row['created_at'] = now
                 row['group_label'] = now
+                del row['id']
                 hr = OSCOTC()
                 hr.update(**row)
                 hrs.append(hr)
