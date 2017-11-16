@@ -22,6 +22,12 @@ class OSCOTC(db.Model):
     group_label = db.Column(db.Integer, index=True)
     created_at = db.Column(db.Integer, index=True)
 
+    def __repr__(self):
+        return '<OSCOTC %r>' % self.crypto_currency
+
+    def update(self, **entries):
+        self.__dict__.update(entries)
+
 
 class HashrateStat(db.Model):
     __tablename__ = 'hashrate_stat'
