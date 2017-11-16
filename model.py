@@ -5,6 +5,24 @@ from sqlalchemy import asc
 import time
 
 
+class OSCOTC(db.Model):
+    __tablename__ = 'osc_otc'
+
+    id = db.Column(db.Integer, primary_key=True)
+    crypto_currency = db.Column(db.String(64))
+    oid = db.Column(db.Integer)
+    trade_currency = db.Column(db.String(64))
+    price = db.Column(db.Numeric(14, 2))
+    is_buy = db.Column(db.Boolean)
+    max_qty = db.Column(db.Integer)
+    min_qty = db.Column(db.Integer)
+    max_amount = db.Column(db.Integer)
+    min_amount = db.Column(db.Integer)
+    name = db.Column(db.String(64))
+    group_label = db.Column(db.Integer, index=True)
+    created_at = db.Column(db.Integer, index=True)
+
+
 class HashrateStat(db.Model):
     __tablename__ = 'hashrate_stat'
 
