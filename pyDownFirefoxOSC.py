@@ -22,6 +22,7 @@ with open("firefoxOSC.json", 'a+') as w:
             cnt += 1
             br = requests.post('https://otc.firefoxotc.com/api/market/list', data=buy_payload)
             bdata = br.json()
+            print bdata
             sr = requests.post('https://otc.firefoxotc.com/api/market/list', data=sell_payload)
             sdata = sr.json()
             if 'data' not in bdata or 'lists' not in bdata\
