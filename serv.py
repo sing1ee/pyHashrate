@@ -56,8 +56,8 @@ def osc_json():
     sell_data = query_sell(start=start)
     print sell_data
     x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x[1])), buy_data)
-    series = [{"name": "买", "type": "line", "stack": "价格", "data": map(lambda x: x[0], sell_data)},
-              {"name": "卖", "type": "line", "stack": "价格", "data": map(lambda x: x[0], buy_data)}]
+    series = [{"name": "买", "type": "line", "stack": "价格", "data": map(lambda x: x[0], buy_data)},
+              {"name": "卖", "type": "line", "stack": "价格", "data": map(lambda x: x[0], sell_data)}]
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
