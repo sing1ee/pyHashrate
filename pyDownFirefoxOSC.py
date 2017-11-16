@@ -33,7 +33,7 @@ with open("firefoxOSC.json", 'a+') as w:
                     or 'data' not in sdata or 'lists' not in sdata['data']:
                 continue
             rows = bdata['data']['lists']
-            rows.extends(sdata['data']['lists'])
+            rows.extend(sdata['data']['lists'])
             w.write(json.dumps(rows) + "\n")
             now = int(time.time())
             hrs = []
