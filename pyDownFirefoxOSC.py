@@ -6,17 +6,29 @@ import json
 import time
 import traceback
 
+buy_payload = {"crypto_currency": "OSC",
+               "trade_currency": "CNY",
+               "is_buy": 'true',
+               "offset": 0,
+               "limit": 8,
+               }
+sell_payload = buy_payload['is_buy']='false'
+
 cnt = 0
 with open("firefoxOSC.json", 'a+') as w:
     while True:
         try:
             print cnt
             cnt += 1
-            r = requests.get('https://otc.firefoxotc.com/api/market/list')
-            data = r.json()
-            if 'data' not in data or 'lists' not in data:
+            br = requests.post('https://otc.firefoxotc.com/api/market/list', data=buy_payload)
+            bdata = br.json()
+            sr = requests.post('https://otc.firefoxotc.com/api/market/list', data=sell_payload)
+            sdata = sr.json()
+            if 'data' not in bdata or 'lists' not in bdata\
+                    or 'data' not in sdata or 'lists' not in sdata:
                 continue
-            rows = data['data']['lists']
+            rows = bdata['data']['lists']
+            rows.append(sdata['data']['lists'])
             w.write(json.dumps(rows) + "\n")
             now = int(time.time())
             hrs = []
