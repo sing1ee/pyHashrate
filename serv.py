@@ -53,7 +53,7 @@ def osc_json():
 
     buy_data = query_buy(start=start)
     print buy_data
-    sell_data = sell_data(start=start)
+    sell_data = query_sell(start=start)
     print sell_data
     x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x[1])), buy_data)
     series = [{"name": "买", "type": "line", "stack": "价格", "data": map(lambda x: x[0], sell_data)},
