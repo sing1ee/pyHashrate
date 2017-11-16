@@ -62,7 +62,7 @@ def osc_json():
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
 
-@app.route('/osc')
+@app.route('/wkc_otc')
 def osc():
     return render_template('osc.html')
 
