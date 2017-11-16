@@ -12,7 +12,7 @@ with open("firefoxOSC.json", 'a+') as w:
         try:
             print cnt
             cnt += 1
-            r = requests.get('https://btc.com/stats/api/realtime/poolHashrate?count=12')
+            r = requests.get('https://otc.firefoxotc.com/api/market/list')
             data = r.json()
             if 'data' not in data or 'lists' not in data:
                 continue
