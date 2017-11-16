@@ -5,63 +5,44 @@
     <title>Hashrate</title>
 </head>
 <body>
-<div id="main" style="width: 100%;height: 400px;"></div>
-<script src="{{ url_for('static', filename='echarts.simple.min.js') }}"></script>
+<div id="main" style="width: 100%;height: 600px;"></div>
+<script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
 
-    // 指定图表的配置项和数据
-    var option = {
-        title: {
-            text: '算力趋势'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data: []
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: []
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            name: '',
-            type: 'line',
-            data: []
-        }]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
     // 异步加载数据
     $.get('data.json').done(function (data) {
         // 填入数据
         myChart.setOption({
+            title: {
+                text: '算力趋势'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
             legend: {
                 data: data.legends
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
             },
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
                 data: data.x_axis
+            },
+            yAxis: {
+                type: 'value'
             },
             series: data.series
         });

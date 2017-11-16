@@ -54,7 +54,7 @@ def data_json():
     for key in legends:
         group = group_all[key]
         sorted(group, key = lambda x: x.created_at)
-        x_axis = map(lambda x: time.strftime("%d日%H时", time.localtime(x.created_at)), group)
+        x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
         series.append({'name': key, 'type': 'line', 'stack': '算力', 'data': map(lambda x: x.hashrate, group)})
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
