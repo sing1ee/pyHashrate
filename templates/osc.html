@@ -13,7 +13,7 @@
     var myChart = echarts.init(document.getElementById('main'));
 
     // 异步加载数据
-    $.get('data.json').done(function (data) {
+    $.get('osc.json').done(function (data) {
         // 填入数据
         myChart.setOption({
             title: {
