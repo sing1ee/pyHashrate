@@ -49,7 +49,7 @@ def data_json():
 
 @app.route('/osc.json')
 def osc_json():
-    legends = ['买', '卖']
+    legends = ['买方最低价', '卖方最高价']
     start = int(time.time()) - 5 * 86400  # 5 days
 
     buy_data = query_buy(start=start)
@@ -62,8 +62,8 @@ def osc_json():
         else:
             new_buy_data.append(buy_data[i])
     new_buy_data.reverse()
-    series = [{"name": "买", "type": "line", "data": map(lambda x: x[0], new_buy_data)},
-              {"name": "卖", "type": "line", "data": map(lambda x: x[0], sell_data)}]
+    series = [{"name": "买方最低价", "type": "line", "data": map(lambda x: x[0], new_buy_data)},
+              {"name": "卖方最高价", "type": "line", "data": map(lambda x: x[0], sell_data)}]
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
