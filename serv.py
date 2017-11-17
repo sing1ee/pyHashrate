@@ -7,6 +7,7 @@ from flask.ext.migrate import Migrate,MigrateCommand
 from model import query_last_n_days, query_buy, query_sell
 from itertools import groupby
 import simplejson as json
+from decimal import Decimal
 import collections
 import time
 import sys
