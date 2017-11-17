@@ -1,0 +1,70 @@
+/root/pyHashrate/config.py:5: ExtDeprecationWarning: Importing flask.ext.sqlalchemy is deprecated, use flask_sqlalchemy instead.
+  from flask.ext.sqlalchemy import SQLAlchemy
+/root/pyHashrate/config.py:5: ExtDeprecationWarning: Importing flask.ext.sqlalchemy is deprecated, use flask_sqlalchemy instead.
+  from flask.ext.sqlalchemy import SQLAlchemy
+/usr/lib/python2.7/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+/usr/lib/python2.7/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+serv.py:5: ExtDeprecationWarning: Importing flask.ext.script is deprecated, use flask_script instead.
+  from flask.ext.script import Manager
+serv.py:5: ExtDeprecationWarning: Importing flask.ext.script is deprecated, use flask_script instead.
+  from flask.ext.script import Manager
+serv.py:6: ExtDeprecationWarning: Importing flask.ext.migrate is deprecated, use flask_migrate instead.
+  from flask.ext.migrate import Migrate,MigrateCommand
+serv.py:6: ExtDeprecationWarning: Importing flask.ext.migrate is deprecated, use flask_migrate instead.
+  from flask.ext.migrate import Migrate,MigrateCommand
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+117.136.100.66 - - [16/Nov/2017 21:40:59] "GET /wkc_otc HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:40:59] "GET /wkc_otc HTTP/1.1" 200 -
+180.169.3.178 - - [16/Nov/2017 21:40:59] "GET /wkc_otc HTTP/1.1" 200 -
+180.169.3.178 - - [16/Nov/2017 21:40:59] "GET /wkc_otc HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:00] "GET /static/echarts.min.js HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:00] "GET /static/echarts.min.js HTTP/1.1" 200 -
+180.169.3.178 - - [16/Nov/2017 21:41:00] "GET /osc.json HTTP/1.1" 200 -
+180.169.3.178 - - [16/Nov/2017 21:41:00] "GET /osc.json HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:00] "GET /static/jquery-3.2.1.min.js HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:00] "GET /static/jquery-3.2.1.min.js HTTP/1.1" 200 -
+111.36.176.108 - - [16/Nov/2017 21:41:17] "GET /wkc_otc HTTP/1.1" 200 -
+111.36.176.108 - - [16/Nov/2017 21:41:17] "GET /wkc_otc HTTP/1.1" 200 -
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/SocketServer.py", line 568, in process_request
+  File "/usr/lib64/python2.7/SocketServer.py", line 568, in process_request
+    self.finish_request(request, client_address)
+    self.finish_request(request, client_address)
+  File "/usr/lib64/python2.7/SocketServer.py", line 334, in finish_request
+  File "/usr/lib64/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib64/python2.7/SocketServer.py", line 651, in __init__
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib64/python2.7/SocketServer.py", line 651, in __init__
+    self.finish()
+  File "/usr/lib64/python2.7/SocketServer.py", line 710, in finish
+    self.finish()
+  File "/usr/lib64/python2.7/SocketServer.py", line 710, in finish
+    self.wfile.close()
+    self.wfile.close()
+  File "/usr/lib64/python2.7/socket.py", line 279, in close
+  File "/usr/lib64/python2.7/socket.py", line 279, in close
+    self.flush()
+  File "/usr/lib64/python2.7/socket.py", line 303, in flush
+    self.flush()
+  File "/usr/lib64/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+error: [Errno 32] Broken pipe
+error: [Errno 32] Broken pipe
+117.136.100.66 - - [16/Nov/2017 21:41:17] "GET /wkc_otc HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:17] "GET /wkc_otc HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:17] "GET /osc.json HTTP/1.1" 200 -
+117.136.100.66 - - [16/Nov/2017 21:41:17] "GET /osc.json HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:21] "GET /wkc_otc HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:21] "GET /wkc_otc HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:21] "GET /static/jquery-3.2.1.min.js HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:21] "GET /static/jquery-3.2.1.min.js HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:21] "GET /static/echarts.min.js HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:21] "GET /static/echarts.min.js HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:26] "GET /osc.json HTTP/1.1" 200 -
+112.28.178.119 - - [16/Nov/2017 21:41:26] "GET /osc.json HTTP/1.1" 200 -
