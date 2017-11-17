@@ -56,8 +56,8 @@ def osc_json():
     x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x[1])), buy_data)
     new_buy_data = []
     for i in range(len(buy_data) - 1, -1, -1):
-        if buy_data[i][0] > sell_data[i][0] * 5:
-            new_buy_data.append((sell_data[i][0] * 1.1, buy_data[i - 1][1]))
+        if buy_data[i][0] > sell_data[i][0] * Decimal(5):
+            new_buy_data.append((sell_data[i][0] * Decimal(1.1), buy_data[i - 1][1]))
         else:
             new_buy_data.append(buy_data[i])
     new_buy_data.reverse()
