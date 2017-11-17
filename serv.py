@@ -57,7 +57,7 @@ def osc_json():
     new_buy_data = []
     for i in range(len(buy_data) - 1, -1, -1):
         if buy_data[i][0] > buy_data[i - 1][0] * 5:
-            new_buy_data.append(buy_data[i - 1][0], buy_data[i - 1][1])
+            new_buy_data.append((buy_data[i - 1][0], buy_data[i - 1][1]))
         else:
             new_buy_data.append(buy_data[i])
     new_buy_data.reverse()
