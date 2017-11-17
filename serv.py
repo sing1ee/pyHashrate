@@ -41,7 +41,7 @@ def data_json():
         group = group_all[key]
         sorted(group, key = lambda x: x.created_at)
         x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
-        series.append({'name': key, 'type': 'line', 'stack': '算力', 'data': map(lambda x: x.hashrate, group)})
+        series.append({'name': key, 'type': 'line', 'data': map(lambda x: x.hashrate, group)})
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
@@ -52,9 +52,7 @@ def osc_json():
     start = int(time.time()) - 5 * 86400  # 5 days
 
     buy_data = query_buy(start=start)
-    print buy_data
     sell_data = query_sell(start=start)
-    print sell_data
     x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x[1])), buy_data)
     new_buy_data = []
     for i in range(len(buy_data) - 1, -1, -1):
