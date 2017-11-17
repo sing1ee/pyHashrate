@@ -62,8 +62,8 @@ def osc_json():
         else:
             new_buy_data.append(buy_data[i])
     new_buy_data.reverse()
-    series = [{"name": "买", "type": "line", "stack": "价格", "data": map(lambda x: x[0], new_buy_data)},
-              {"name": "卖", "type": "line", "stack": "价格", "data": map(lambda x: x[0], sell_data)}]
+    series = [{"name": "买", "type": "line", "data": map(lambda x: x[0], new_buy_data)},
+              {"name": "卖", "type": "line", "data": map(lambda x: x[0], sell_data)}]
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
