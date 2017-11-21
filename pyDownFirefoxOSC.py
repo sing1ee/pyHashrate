@@ -48,5 +48,5 @@ with open("firefoxOSC.json", 'a+') as w:
             save_all(hrs)
         except:
             traceback.print_exc()
-            pass
+            continue
         time.sleep(60*2)
