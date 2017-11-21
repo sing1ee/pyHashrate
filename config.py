@@ -19,6 +19,7 @@ if os.path.exists(CONFIG_PATH):
             os.environ[var[0]] = var[1]
 
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+SQLALCHEMY_POOL_SIZE = 100
 
 print SQLALCHEMY_DATABASE_URI
 
