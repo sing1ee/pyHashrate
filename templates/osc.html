@@ -6,15 +6,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='semantic.min.css') }}" type="text/css" />
 </head>
 <body>
-        <div class="ui stackable sixteen column grid container" style="width:100%;height:500px;">
+        <div class="ui stackable sixteen column grid container" style="width:100%;">
             <div class="sixteen column row">
-            <div class="eleven wide column" id="main"></div>
-            <div class="five wide column">
-                <div class="ui segment">
-                    最新买方最高价：<div class="ui red horizontal label">{{buy_max}}</div> 元
-                </div>
-                <div class="ui segment">
-                    最新卖方最低价：<div class="ui red horizontal label">{{sell_min}}</div> 元
+                <div class="eleven wide column" id="main" class="height:500px;"></div>
+                <div class="five wide column">
+                    <div class="ui segment">
+                        最新买方最高价：<div class="ui red horizontal label">{{buy_max}}</div> 元
+                    </div>
+                    <div class="ui segment">
+                        最新卖方最低价：<div class="ui red horizontal label">{{sell_min}}</div> 元
+                    </div>
                 </div>
             </div> 
             <div class="sixteen column row">
@@ -42,7 +43,6 @@
                                 </div>
                         </div>
                 </div>
-            </div>
             </div>      
         </div>
 
