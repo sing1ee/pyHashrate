@@ -6,90 +6,90 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='semantic.min.css') }}" type="text/css" />
 </head>
 <body>
-        <div class="ui stackable sixteen column grid container" style="width:100%;">
-            <div class="sixteen column row">
-                <div class="eleven wide column" id="main" class="height:500px;"></div>
-                <div class="five wide column">
-                    <div class="ui segment">
-                        最新买方最高价：<div class="ui red horizontal label">{{buy_max}}</div> 元
-                    </div>
-                    <div class="ui segment">
-                        最新卖方最低价：<div class="ui red horizontal label">{{sell_min}}</div> 元
-                    </div>
-                </div>
-            </div> 
-            <div class="sixteen column row">
-                <div class="three column">
-                        <div class="ui segment">
-                                <div class="ui small card">
-                                  <div class="image">
-                                    <img src="{{ url_for('static', filename='xiaomiquan.png') }}">
-                                  </div>
-                                  <div class="content">
-                                    <a class="header">数字货币交流群</a>
-                                    <div class="meta">
-                                      <span class="date">当前帖子100+</span>
-                                    </div>
-                                    <div class="description">
-                                      已经有大量针对BTC，BCH，玩客币的估值分析，以及讨论。欢迎参加。
-                                    </div>
-                                  </div>
-                                  <div class="extra content">
-                                    <a>
-                                      <i class="user icon"></i>
-                                      100+成员
-                                    </a>
-                                  </div>
-                                </div>
-                        </div>
-                </div>
-            </div>      
+<div class="ui stackable sixteen column grid container" style="width:100%;">
+    <div class="sixteen column row">
+        <div class="eleven wide column" id="main" style="height:500px;"></div>
+        <div class="five wide column">
+            <div class="ui segment">
+                最新买方最高价：<div class="ui red horizontal label">{{buy_max}}</div> 元
+            </div>
+            <div class="ui segment">
+                最新卖方最低价：<div class="ui red horizontal label">{{sell_min}}</div> 元
+            </div>
         </div>
+    </div> 
+    <div class="sixteen column row">
+        <div class="three wide column">
+            <div class="ui segment">
+                <div class="ui small card">
+                    <div class="image">
+                        <img src="{{ url_for('static', filename='xiaomiquan.png') }}">
+                    </div>
+                    <div class="content">
+                        <a class="header">数字货币交流群</a>
+                        <div class="meta">
+                            <span class="date">当前帖子100+</span>
+                        </div>
+                        <div class="description">
+                            已经有大量针对BTC，BCH，玩客币的估值分析，以及讨论。欢迎参加。
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="user icon"></i>
+                            100+成员
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+</div>
 
 <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
 <script src="{{ url_for('static', filename='semantic.min.js') }}"></script>
 <script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
 
-    // 异步加载数据
-    $.get('osc.json').done(function (data) {
+// 异步加载数据
+$.get('osc.json').done(function (data) {
         // 填入数据
         myChart.setOption({
-            title: {
-                text: '玩客币价格'
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: data.legends
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            toolbox: {
-                feature: {
-                    saveAsImage: {}
-                }
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: false,
-                data: data.x_axis
-            },
-            yAxis: {
-                type: 'value',
-                splitNumber: 2,
-                scale: true
-            },
-            series: data.series
-        });
-    });
+title: {
+text: '玩客币价格'
+},
+tooltip: {
+trigger: 'axis'
+},
+legend: {
+data: data.legends
+},
+grid: {
+left: '3%',
+right: '4%',
+bottom: '3%',
+containLabel: true
+},
+toolbox: {
+feature: {
+saveAsImage: {}
+}
+},
+xAxis: {
+type: 'category',
+      boundaryGap: false,
+      data: data.x_axis
+       },
+yAxis: {
+type: 'value',
+      splitNumber: 2,
+      scale: true
+       },
+series: data.series
+});
+});
 </script>
 </body>
 </html>
