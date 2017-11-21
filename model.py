@@ -88,9 +88,9 @@ def query_sell(start=0):
 
 def sell_min_price():
     sql = text('select min(price) from osc_otc where is_buy=FALSE and group_label=(select max(group_label) from osc_otc);')
-    return db.engine.execute(sql)
+    return db.engine.execute(sql).fetchone()
 
 
 def buy_max_price():
     sql = text('select max(price) from osc_otc where is_buy=TRUE and group_label=(select max(group_label) from osc_otc);')
-    return db.engine.execute(sql)
+    return db.engine.execute(sql).fetchone()
