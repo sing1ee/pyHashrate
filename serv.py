@@ -4,7 +4,7 @@ from flask import render_template, jsonify
 from config import app, db
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate,MigrateCommand
-from model import query_last_n_days, query_buy, query_sell
+from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price
 from itertools import groupby
 import simplejson as json
 from decimal import Decimal
@@ -70,7 +70,8 @@ def osc_json():
 
 @app.route('/wkc_otc')
 def osc():
-    return render_template('osc.html')
+
+    return render_template('osc.html', buy_max=buy_max_price(), sell_min=sell_min_price())
 
 if __name__=='__main__':
     manager.run()

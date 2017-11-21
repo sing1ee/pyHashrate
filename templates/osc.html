@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>玩客币价格</title>
+    <title>玩客币</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='senmantic.min.css') }}" type="text/css" />
 </head>
 <body>
-<div id="main" style="width: 100%;height: 600px;"></div>
+        <div class="ui grid">
+            <div class="eight wide column" id="main"></div>
+            <div class="two wide column">
+                <div class="ui segment">
+                    最新买方最高价：<div class="ui red horizontal label">{{buy_max}}</div> 元
+                </div>
+                <div class="ui segment">
+                    最新卖方最低价：<div class="ui red horizontal label">{{sell_min}}</div> 元
+                </div>
+            </div>       
+        </div>
+
 <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='senmantic.min.js') }}"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));

@@ -84,3 +84,13 @@ def query_buy(start=0):
 def query_sell(start=0):
     sql = text('select min(price), group_label from osc_otc where is_buy=FALSE and created_at>%d group by group_label order by group_label asc;' % start)
     return map(lambda x: (x[0], x[1]), db.engine.execute(sql))
+
+
+def sell_min_price():
+    sql = text('select min(price) from osc_otc where is_buy=FALSE and group_label=(select max(group_label) from osc_otc);')
+    return db.engine.execute(sql)
+
+
+def buy_max_price():
+    sql = text('select max(price) from osc_otc where is_buy=TRUE and group_label=(select max(group_label) from osc_otc);')
+    return db.engine.execute(sql)

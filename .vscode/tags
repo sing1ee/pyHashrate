@@ -1,0 +1,177 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+066941cf3397_.py	../migrations/versions/066941cf3397_.py	1;"	kind:file	line:1
+30cd498d3297_.py	../migrations/versions/30cd498d3297_.py	1;"	kind:file	line:1
+CONFIG_PATH	../config.py	/^CONFIG_PATH = "\/root\/.pyhashrate_env"$/;"	kind:variable	line:10
+DATABASE_URL	../config.py	/^DATABASE_URL = "DATABASE_URL"$/;"	kind:variable	line:9
+Decimal	../serv.py	/^from decimal import Decimal$/;"	kind:namespace	line:10
+Flask	../config.py	/^from flask import Flask$/;"	kind:namespace	line:4
+HashrateStat	../model.py	/^class HashrateStat(db.Model):$/;"	kind:class	line:32
+HashrateStat	../pyDownFirefoxOSC.py	/^from model import HashrateStat, OSCOTC, save_all$/;"	kind:namespace	line:3
+HashrateStat	../pyHashrateDownload.py	/^from model import HashrateStat, save_all$/;"	kind:namespace	line:3
+Manager	../serv.py	/^from flask.ext.script import Manager$/;"	kind:namespace	line:5
+Migrate	../serv.py	/^from flask.ext.migrate import Migrate,MigrateCommand$/;"	kind:namespace	line:6
+MigrateCommand	../serv.py	/^from flask.ext.migrate import Migrate,MigrateCommand$/;"	kind:namespace	line:6
+OSCOTC	../model.py	/^class OSCOTC(db.Model):$/;"	kind:class	line:8
+OSCOTC	../pyDownFirefoxOSC.py	/^from model import HashrateStat, OSCOTC, save_all$/;"	kind:namespace	line:3
+SERVER_HOST	../config.py	/^SERVER_HOST = "SERVER_HOST"$/;"	kind:variable	line:7
+SERVER_PORT	../config.py	/^SERVER_PORT = "SERVER_PORT"$/;"	kind:variable	line:8
+SQLALCHEMY_DATABASE_URI	../config.py	/^SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')$/;"	kind:variable	line:21
+SQLAlchemy	../config.py	/^from flask.ext.sqlalchemy import SQLAlchemy$/;"	kind:namespace	line:5
+__repr__	../model.py	/^    def __repr__(self):$/;"	kind:member	line:25
+__repr__	../model.py	/^    def __repr__(self):$/;"	kind:member	line:53
+__tablename__	../model.py	/^    __tablename__ = 'hashrate_stat'$/;"	kind:variable	line:33
+__tablename__	../model.py	/^    __tablename__ = 'osc_otc'$/;"	kind:variable	line:9
+a3647e779861_.py	../migrations/versions/a3647e779861_.py	1;"	kind:file	line:1
+app	../config.py	/^app = Flask(__name__)$/;"	kind:variable	line:12
+app	../config.py	/^app=Flask(__name__)$/;"	kind:variable	line:25
+app	../serv.py	/^from config import app, db$/;"	kind:namespace	line:4
+asc	../model.py	/^from sqlalchemy import asc, text$/;"	kind:namespace	line:4
+bdata	../pyDownFirefoxOSC.py	/^            bdata = br.json()$/;"	kind:variable	line:28
+bdata	../test.py	/^            bdata = br.json()$/;"	kind:variable	line:26
+br	../pyDownFirefoxOSC.py	/^            br = requests.post('https:\/\/otc.firefoxotc.com\/api\/market\/list', data=buy_payload)$/;"	kind:variable	line:27
+br	../test.py	/^            br = requests.post('https:\/\/otc.firefoxotc.com\/api\/market\/list', data=buy_payload)$/;"	kind:variable	line:25
+branch_labels	../migrations/versions/066941cf3397_.py	/^branch_labels = None$/;"	kind:variable	line:15
+branch_labels	../migrations/versions/30cd498d3297_.py	/^branch_labels = None$/;"	kind:variable	line:15
+branch_labels	../migrations/versions/a3647e779861_.py	/^branch_labels = None$/;"	kind:variable	line:15
+buy_payload	../pyDownFirefoxOSC.py	/^buy_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:9
+buy_payload	../test.py	/^buy_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:6
+cnt	../pyDownFirefoxOSC.py	/^cnt = 0$/;"	kind:variable	line:21
+cnt	../pyHashrateDownload.py	/^cnt = 0$/;"	kind:variable	line:9
+cnt	../test.py	/^cnt = 0$/;"	kind:variable	line:19
+collections	../serv.py	/^import collections$/;"	kind:namespace	line:11
+config	../migrations/env.py	/^config = context.config$/;"	kind:variable	line:9
+config.py	../config.py	1;"	kind:file	line:1
+context	../migrations/env.py	/^from alembic import context$/;"	kind:namespace	line:2
+count	../model.py	/^    count = db.Column(db.String(64))$/;"	kind:variable	line:37
+created_at	../model.py	/^    created_at = db.Column(db.Integer, index=True)$/;"	kind:variable	line:23
+created_at	../model.py	/^    created_at = db.Column(db.Integer, index=True)$/;"	kind:variable	line:51
+crypto_currency	../model.py	/^    crypto_currency = db.Column(db.String(64))$/;"	kind:variable	line:12
+cur2max_percent	../model.py	/^    cur2max_percent = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:49
+current_app	../migrations/env.py	/^from flask import current_app$/;"	kind:namespace	line:20
+data	../pyHashrateDownload.py	/^            data = r.json()$/;"	kind:variable	line:16
+data_json	../serv.py	/^def data_json():$/;"	kind:function	line:32
+db	../config.py	/^db=SQLAlchemy(app)/;"	kind:variable	line:27
+db	../model.py	/^from config import db$/;"	kind:namespace	line:3
+db	../serv.py	/^from config import app, db$/;"	kind:namespace	line:4
+depends_on	../migrations/versions/066941cf3397_.py	/^depends_on = None$/;"	kind:variable	line:16
+depends_on	../migrations/versions/30cd498d3297_.py	/^depends_on = None$/;"	kind:variable	line:16
+depends_on	../migrations/versions/a3647e779861_.py	/^depends_on = None$/;"	kind:variable	line:16
+diff_24h	../model.py	/^    diff_24h = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:43
+down_revision	../migrations/versions/066941cf3397_.py	/^down_revision = '30cd498d3297'$/;"	kind:variable	line:14
+down_revision	../migrations/versions/30cd498d3297_.py	/^down_revision = None$/;"	kind:variable	line:14
+down_revision	../migrations/versions/a3647e779861_.py	/^down_revision = '066941cf3397'$/;"	kind:variable	line:14
+downgrade	../migrations/versions/066941cf3397_.py	/^def downgrade():$/;"	kind:function	line:25
+downgrade	../migrations/versions/30cd498d3297_.py	/^def downgrade():$/;"	kind:function	line:43
+downgrade	../migrations/versions/a3647e779861_.py	/^def downgrade():$/;"	kind:function	line:44
+engine_from_config	../migrations/env.py	/^from sqlalchemy import engine_from_config, pool$/;"	kind:namespace	line:3
+env.py	../migrations/env.py	1;"	kind:file	line:1
+fileConfig	../migrations/env.py	/^from logging.config import fileConfig$/;"	kind:namespace	line:4
+group_label	../model.py	/^    group_label = db.Column(db.Integer, index=True)$/;"	kind:variable	line:22
+groupby	../serv.py	/^from itertools import groupby$/;"	kind:namespace	line:8
+hash	../serv.py	/^def hash():$/;"	kind:function	line:27
+hash_share	../model.py	/^    hash_share = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:39
+hashrate	../model.py	/^    hashrate = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:46
+hashrate_unit	../model.py	/^    hashrate_unit = db.Column(db.String(16))$/;"	kind:variable	line:47
+hr	../pyDownFirefoxOSC.py	/^                hr = OSCOTC()$/;"	kind:variable	line:45
+hr	../pyHashrateDownload.py	/^                hr = HashrateStat()$/;"	kind:variable	line:25
+hrs	../pyDownFirefoxOSC.py	/^            hrs = []$/;"	kind:variable	line:39
+hrs	../pyHashrateDownload.py	/^            hrs = []$/;"	kind:variable	line:22
+icon_link	../model.py	/^    icon_link = db.Column(db.String(1028))$/;"	kind:variable	line:45
+id	../model.py	/^    id = db.Column(db.Integer, primary_key=True)$/;"	kind:variable	line:11
+id	../model.py	/^    id = db.Column(db.Integer, primary_key=True)$/;"	kind:variable	line:35
+index	../model.py	/^    index = db.Column(db.Integer)$/;"	kind:variable	line:50
+is_buy	../model.py	/^    is_buy = db.Column(db.Boolean)$/;"	kind:variable	line:16
+json	../pyDownFirefoxOSC.py	/^import json$/;"	kind:namespace	line:5
+json	../pyHashrateDownload.py	/^import json$/;"	kind:namespace	line:5
+json	../serv.py	/^import simplejson as json$/;"	kind:namespace	line:9
+json	../test.py	/^import json$/;"	kind:namespace	line:2
+jsonify	../serv.py	/^from flask import render_template, jsonify$/;"	kind:namespace	line:3
+link	../model.py	/^    link = db.Column(db.String(1028))$/;"	kind:variable	line:40
+logger	../migrations/env.py	/^logger = logging.getLogger('alembic.env')$/;"	kind:variable	line:14
+logging	../migrations/env.py	/^import logging$/;"	kind:namespace	line:5
+lucky	../model.py	/^    lucky = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:48
+manager	../serv.py	/^manager=Manager(app)$/;"	kind:variable	line:21
+max_amount	../model.py	/^    max_amount = db.Column(db.Integer)$/;"	kind:variable	line:19
+max_qty	../model.py	/^    max_qty = db.Column(db.Integer)$/;"	kind:variable	line:17
+migrate	../serv.py	/^migrate=Migrate(app,db)$/;"	kind:variable	line:20
+min_amount	../model.py	/^    min_amount = db.Column(db.Integer)$/;"	kind:variable	line:20
+min_qty	../model.py	/^    min_qty = db.Column(db.Integer)$/;"	kind:variable	line:18
+model.py	../model.py	1;"	kind:file	line:1
+name	../model.py	/^    name = db.Column(db.String(64))$/;"	kind:variable	line:21
+now	../pyDownFirefoxOSC.py	/^            now = int(time.time())$/;"	kind:variable	line:38
+now	../pyHashrateDownload.py	/^            now = int(time.time())$/;"	kind:variable	line:21
+oid	../model.py	/^    oid = db.Column(db.Integer)$/;"	kind:variable	line:13
+op	../migrations/versions/066941cf3397_.py	/^from alembic import op$/;"	kind:namespace	line:8
+op	../migrations/versions/30cd498d3297_.py	/^from alembic import op$/;"	kind:namespace	line:8
+op	../migrations/versions/a3647e779861_.py	/^from alembic import op$/;"	kind:namespace	line:8
+os	../config.py	/^import os$/;"	kind:namespace	line:3
+osc	../serv.py	/^def osc():$/;"	kind:function	line:72
+osc_json	../serv.py	/^def osc_json():$/;"	kind:function	line:51
+pool	../migrations/env.py	/^from sqlalchemy import engine_from_config, pool$/;"	kind:namespace	line:3
+pool_icon_class	../model.py	/^    pool_icon_class = db.Column(db.String(1028))$/;"	kind:variable	line:44
+pool_id	../model.py	/^    pool_id = db.Column(db.String(64))$/;"	kind:variable	line:41
+pool_share	../model.py	/^    pool_share = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:38
+price	../model.py	/^    price = db.Column(db.Numeric(14, 2))$/;"	kind:variable	line:15
+process_revision_directives	../migrations/env.py	/^    def process_revision_directives(context, revision, directives):$/;"	kind:function	line:61
+pyDownFirefoxOSC.py	../pyDownFirefoxOSC.py	1;"	kind:file	line:1
+pyHashrateDownload.py	../pyHashrateDownload.py	1;"	kind:file	line:1
+query_buy	../model.py	/^def query_buy(start=0):$/;"	kind:function	line:79
+query_buy	../serv.py	/^from model import query_last_n_days, query_buy, query_sell$/;"	kind:namespace	line:7
+query_last_n_days	../model.py	/^def query_last_n_days(days=3):$/;"	kind:function	line:73
+query_last_n_days	../serv.py	/^from model import query_last_n_days, query_buy, query_sell$/;"	kind:namespace	line:7
+query_sell	../model.py	/^def query_sell(start=0):$/;"	kind:function	line:84
+query_sell	../serv.py	/^from model import query_last_n_days, query_buy, query_sell$/;"	kind:namespace	line:7
+r	../pyHashrateDownload.py	/^            r = requests.get('https:\/\/btc.com\/stats\/api\/realtime\/poolHashrate?count=12')$/;"	kind:variable	line:15
+real_hashrate	../model.py	/^    real_hashrate = db.Column(db.String(64))$/;"	kind:variable	line:42
+relayed_by	../model.py	/^    relayed_by = db.Column(db.String(64))$/;"	kind:variable	line:36
+render_template	../serv.py	/^from flask import render_template, jsonify$/;"	kind:namespace	line:3
+requests	../pyDownFirefoxOSC.py	/^import requests$/;"	kind:namespace	line:4
+requests	../pyHashrateDownload.py	/^import requests$/;"	kind:namespace	line:4
+requests	../test.py	/^import requests$/;"	kind:namespace	line:1
+revision	../migrations/versions/066941cf3397_.py	/^revision = '066941cf3397'$/;"	kind:variable	line:13
+revision	../migrations/versions/30cd498d3297_.py	/^revision = '30cd498d3297'$/;"	kind:variable	line:13
+revision	../migrations/versions/a3647e779861_.py	/^revision = 'a3647e779861'$/;"	kind:variable	line:13
+rows	../pyDownFirefoxOSC.py	/^            rows = bdata['data']['lists']$/;"	kind:variable	line:35
+rows	../pyHashrateDownload.py	/^            rows = data['data']$/;"	kind:variable	line:19
+rows	../test.py	/^            rows = bdata['data']['lists']$/;"	kind:variable	line:35
+run_migrations_offline	../migrations/env.py	/^def run_migrations_offline():$/;"	kind:function	line:31
+run_migrations_online	../migrations/env.py	/^def run_migrations_online():$/;"	kind:function	line:50
+sa	../migrations/versions/066941cf3397_.py	/^import sqlalchemy as sa$/;"	kind:namespace	line:9
+sa	../migrations/versions/30cd498d3297_.py	/^import sqlalchemy as sa$/;"	kind:namespace	line:9
+sa	../migrations/versions/a3647e779861_.py	/^import sqlalchemy as sa$/;"	kind:namespace	line:9
+save	../model.py	/^def save(hashrate):$/;"	kind:function	line:63
+save_all	../model.py	/^def save_all(hashrates):$/;"	kind:function	line:68
+save_all	../pyDownFirefoxOSC.py	/^from model import HashrateStat, OSCOTC, save_all$/;"	kind:namespace	line:3
+save_all	../pyHashrateDownload.py	/^from model import HashrateStat, save_all$/;"	kind:namespace	line:3
+sdata	../pyDownFirefoxOSC.py	/^            sdata = sr.json()$/;"	kind:variable	line:31
+sdata	../test.py	/^            sdata = sr.json()$/;"	kind:variable	line:29
+sell_payload	../pyDownFirefoxOSC.py	/^sell_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:15
+sell_payload	../test.py	/^sell_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:12
+serv.py	../serv.py	1;"	kind:file	line:1
+sr	../pyDownFirefoxOSC.py	/^            sr = requests.post('https:\/\/otc.firefoxotc.com\/api\/market\/list', data=sell_payload)$/;"	kind:variable	line:30
+sr	../test.py	/^            sr = requests.post('https:\/\/otc.firefoxotc.com\/api\/market\/list', data=sell_payload)$/;"	kind:variable	line:27
+sys	../serv.py	/^import sys$/;"	kind:namespace	line:13
+target_metadata	../migrations/env.py	/^target_metadata = current_app.extensions['migrate'].db.metadata$/;"	kind:variable	line:23
+test.py	../test.py	1;"	kind:file	line:1
+text	../model.py	/^from sqlalchemy import asc, text$/;"	kind:namespace	line:4
+time	../model.py	/^import time$/;"	kind:namespace	line:5
+time	../pyDownFirefoxOSC.py	/^import time$/;"	kind:namespace	line:6
+time	../pyHashrateDownload.py	/^import time$/;"	kind:namespace	line:6
+time	../serv.py	/^import time$/;"	kind:namespace	line:12
+time	../test.py	/^import time$/;"	kind:namespace	line:3
+traceback	../pyDownFirefoxOSC.py	/^import traceback$/;"	kind:namespace	line:7
+traceback	../pyHashrateDownload.py	/^import traceback$/;"	kind:namespace	line:7
+traceback	../test.py	/^import traceback$/;"	kind:namespace	line:4
+trade_currency	../model.py	/^    trade_currency = db.Column(db.String(64))$/;"	kind:variable	line:14
+update	../model.py	/^    def update(self, **entries):$/;"	kind:member	line:28
+update	../model.py	/^    def update(self, **entries):$/;"	kind:member	line:56
+upgrade	../migrations/versions/066941cf3397_.py	/^def upgrade():$/;"	kind:function	line:19
+upgrade	../migrations/versions/30cd498d3297_.py	/^def upgrade():$/;"	kind:function	line:19
+upgrade	../migrations/versions/a3647e779861_.py	/^def upgrade():$/;"	kind:function	line:19
+var	../config.py	/^        var = line.strip().split('=')$/;"	kind:variable	line:17
+with_statement	../migrations/env.py	/^from __future__ import with_statement$/;"	kind:namespace	line:1
