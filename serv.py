@@ -71,7 +71,7 @@ def osc_json():
 @app.route('/wkc_otc')
 def osc():
 
-    return render_template('osc.html', buy_max=buy_max_price(), sell_min=sell_min_price())
+    return render_template('osc.html', buy_max=buy_max_price()[0], sell_min=sell_min_price()[0])
 
 if __name__=='__main__':
     manager.run()
