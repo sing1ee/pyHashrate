@@ -70,8 +70,13 @@ def osc_json():
 
 @app.route('/wkc_otc')
 def osc():
-
     return render_template('osc.html', buy_max=buy_max_price()[0], sell_min=sell_min_price()[0])
+
+
+@app.route('/home')
+def home():
+    return render_template('menu.html')
+
 
 if __name__=='__main__':
     manager.run()

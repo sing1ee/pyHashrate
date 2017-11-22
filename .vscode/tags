@@ -21,6 +21,7 @@ OSCOTC	../pyDownFirefoxOSC.py	/^from model import HashrateStat, OSCOTC, save_all
 SERVER_HOST	../config.py	/^SERVER_HOST = "SERVER_HOST"$/;"	kind:variable	line:7
 SERVER_PORT	../config.py	/^SERVER_PORT = "SERVER_PORT"$/;"	kind:variable	line:8
 SQLALCHEMY_DATABASE_URI	../config.py	/^SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')$/;"	kind:variable	line:21
+SQLALCHEMY_POOL_SIZE	../config.py	/^SQLALCHEMY_POOL_SIZE = 100$/;"	kind:variable	line:22
 SQLAlchemy	../config.py	/^from flask.ext.sqlalchemy import SQLAlchemy$/;"	kind:namespace	line:5
 __repr__	../model.py	/^    def __repr__(self):$/;"	kind:member	line:25
 __repr__	../model.py	/^    def __repr__(self):$/;"	kind:member	line:53
@@ -28,7 +29,7 @@ __tablename__	../model.py	/^    __tablename__ = 'hashrate_stat'$/;"	kind:variabl
 __tablename__	../model.py	/^    __tablename__ = 'osc_otc'$/;"	kind:variable	line:9
 a3647e779861_.py	../migrations/versions/a3647e779861_.py	1;"	kind:file	line:1
 app	../config.py	/^app = Flask(__name__)$/;"	kind:variable	line:12
-app	../config.py	/^app=Flask(__name__)$/;"	kind:variable	line:25
+app	../config.py	/^app=Flask(__name__)$/;"	kind:variable	line:26
 app	../serv.py	/^from config import app, db$/;"	kind:namespace	line:4
 asc	../model.py	/^from sqlalchemy import asc, text$/;"	kind:namespace	line:4
 bdata	../pyDownFirefoxOSC.py	/^            bdata = br.json()$/;"	kind:variable	line:28
@@ -38,6 +39,8 @@ br	../test.py	/^            br = requests.post('https:\/\/otc.firefoxotc.com\/ap
 branch_labels	../migrations/versions/066941cf3397_.py	/^branch_labels = None$/;"	kind:variable	line:15
 branch_labels	../migrations/versions/30cd498d3297_.py	/^branch_labels = None$/;"	kind:variable	line:15
 branch_labels	../migrations/versions/a3647e779861_.py	/^branch_labels = None$/;"	kind:variable	line:15
+buy_max_price	../model.py	/^def buy_max_price():$/;"	kind:function	line:94
+buy_max_price	../serv.py	/^from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price$/;"	kind:namespace	line:7
 buy_payload	../pyDownFirefoxOSC.py	/^buy_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:9
 buy_payload	../test.py	/^buy_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:6
 cnt	../pyDownFirefoxOSC.py	/^cnt = 0$/;"	kind:variable	line:21
@@ -55,7 +58,7 @@ cur2max_percent	../model.py	/^    cur2max_percent = db.Column(db.Numeric(36, 14)
 current_app	../migrations/env.py	/^from flask import current_app$/;"	kind:namespace	line:20
 data	../pyHashrateDownload.py	/^            data = r.json()$/;"	kind:variable	line:16
 data_json	../serv.py	/^def data_json():$/;"	kind:function	line:32
-db	../config.py	/^db=SQLAlchemy(app)/;"	kind:variable	line:27
+db	../config.py	/^db=SQLAlchemy(app)$/;"	kind:variable	line:28
 db	../model.py	/^from config import db$/;"	kind:namespace	line:3
 db	../serv.py	/^from config import app, db$/;"	kind:namespace	line:4
 depends_on	../migrations/versions/066941cf3397_.py	/^depends_on = None$/;"	kind:variable	line:16
@@ -121,11 +124,11 @@ process_revision_directives	../migrations/env.py	/^    def process_revision_dire
 pyDownFirefoxOSC.py	../pyDownFirefoxOSC.py	1;"	kind:file	line:1
 pyHashrateDownload.py	../pyHashrateDownload.py	1;"	kind:file	line:1
 query_buy	../model.py	/^def query_buy(start=0):$/;"	kind:function	line:79
-query_buy	../serv.py	/^from model import query_last_n_days, query_buy, query_sell$/;"	kind:namespace	line:7
+query_buy	../serv.py	/^from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price$/;"	kind:namespace	line:7
 query_last_n_days	../model.py	/^def query_last_n_days(days=3):$/;"	kind:function	line:73
-query_last_n_days	../serv.py	/^from model import query_last_n_days, query_buy, query_sell$/;"	kind:namespace	line:7
+query_last_n_days	../serv.py	/^from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price$/;"	kind:namespace	line:7
 query_sell	../model.py	/^def query_sell(start=0):$/;"	kind:function	line:84
-query_sell	../serv.py	/^from model import query_last_n_days, query_buy, query_sell$/;"	kind:namespace	line:7
+query_sell	../serv.py	/^from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price$/;"	kind:namespace	line:7
 r	../pyHashrateDownload.py	/^            r = requests.get('https:\/\/btc.com\/stats\/api\/realtime\/poolHashrate?count=12')$/;"	kind:variable	line:15
 real_hashrate	../model.py	/^    real_hashrate = db.Column(db.String(64))$/;"	kind:variable	line:42
 relayed_by	../model.py	/^    relayed_by = db.Column(db.String(64))$/;"	kind:variable	line:36
@@ -150,6 +153,8 @@ save_all	../pyDownFirefoxOSC.py	/^from model import HashrateStat, OSCOTC, save_a
 save_all	../pyHashrateDownload.py	/^from model import HashrateStat, save_all$/;"	kind:namespace	line:3
 sdata	../pyDownFirefoxOSC.py	/^            sdata = sr.json()$/;"	kind:variable	line:31
 sdata	../test.py	/^            sdata = sr.json()$/;"	kind:variable	line:29
+sell_min_price	../model.py	/^def sell_min_price():$/;"	kind:function	line:89
+sell_min_price	../serv.py	/^from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price$/;"	kind:namespace	line:7
 sell_payload	../pyDownFirefoxOSC.py	/^sell_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:15
 sell_payload	../test.py	/^sell_payload = {"crypto_currency": "OSC",$/;"	kind:variable	line:12
 serv.py	../serv.py	1;"	kind:file	line:1
