@@ -80,6 +80,7 @@ hash	../serv.py	/^def hash():$/;"	kind:function	line:27
 hash_share	../model.py	/^    hash_share = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:39
 hashrate	../model.py	/^    hashrate = db.Column(db.Numeric(36, 14))$/;"	kind:variable	line:46
 hashrate_unit	../model.py	/^    hashrate_unit = db.Column(db.String(16))$/;"	kind:variable	line:47
+home	../serv.py	/^def home():$/;"	kind:function	line:77
 hr	../pyDownFirefoxOSC.py	/^                hr = OSCOTC()$/;"	kind:variable	line:45
 hr	../pyHashrateDownload.py	/^                hr = HashrateStat()$/;"	kind:variable	line:25
 hrs	../pyDownFirefoxOSC.py	/^            hrs = []$/;"	kind:variable	line:39
