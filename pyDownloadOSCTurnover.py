@@ -21,6 +21,9 @@ with open("turnover.json", 'a+') as w:
             now = int(time.time())
             hrs = []
             for row in rows:
+                for (k, v) in row.items():
+                    if not v:
+                        del row[k] 
                 row['created_at'] = now
                 if 'dict' not in row or 'code' not in row['dict']:
                     continue
