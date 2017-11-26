@@ -52,7 +52,7 @@ def data_json():
 def turnover_json():
 
     start = int(time.time()) - 5 * 86400  # 5 days
-    hr = query_turnover(start)
+    ret = query_turnover(start)
     group_all = collections.defaultdict(list)
     for ot in ret:
         group_all[ot.exchange].append(ot)
