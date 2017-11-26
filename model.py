@@ -12,7 +12,6 @@ class OSCTurnover(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     change = db.Column(db.Numeric(14, 6))
     cnyPrice = db.Column(db.Numeric(14, 6))
-    createTime = db.Column(db.Integer)
     dict_info = db.Column(JSON)
     mark = db.Column(db.Integer)
     sell = db.Column(db.Numeric(14, 6))
