@@ -47,6 +47,15 @@ def data_json():
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
 
+@app.route('/turnover.json')
+def osc_json():
+    legends = ['买方最高价', '卖方最低价']
+    start = int(time.time()) - 5 * 86400  # 5 days
+
+    
+
+    return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
+
 @app.route('/osc.json')
 def osc_json():
     legends = ['买方最高价', '卖方最低价']

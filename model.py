@@ -20,6 +20,7 @@ class OSCTurnover(db.Model):
     total = db.Column(db.Numeric(14, 6))
     turnover = db.Column(db.Numeric(14, 6))
     exchange = db.Column(db.String(64))
+    created_at = db.Column(db.Integer, index=True)
 
     def __repr__(self):
         return '<OSCOTC %r>' % self.crypto_currency
@@ -78,9 +79,6 @@ class HashrateStat(db.Model):
 
     def update(self, **entries):
         self.__dict__.update(entries)
-
-
-
 
 
 def save(hashrate):
