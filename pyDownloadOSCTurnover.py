@@ -20,11 +20,8 @@ with open("turnover.json", 'a+') as w:
             w.write(json.dumps(rows) + "\n")
             now = int(time.time())
             hrs = []
-            for row in rows:
-                for (k, v) in row.items():
-                    if not v:
-                        del row[k] 
                 row['created_at'] = now
+                row['createTime'] = row['createTime'] / 1000
                 if 'dict' not in row or 'code' not in row['dict']:
                     continue
                 row['exchange'] = row['dict']['code']
