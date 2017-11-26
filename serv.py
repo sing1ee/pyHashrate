@@ -57,9 +57,8 @@ def turnover_json():
     for ot in ret:
         group_all[ot.exchange].append(ot)
     legends = group_all.keys()
-    
     series, x_axis = [], []
-    total_data = list(repeat(0, len(group_all.values()[0]))
+    total_data = list(repeat(0, len(group_all.values()[0])))
     for key in legends:
         group = group_all[key]
         sorted(group, key = lambda x: x.created_at)
