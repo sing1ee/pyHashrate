@@ -2,7 +2,30 @@
 
 from config import db
 from sqlalchemy import asc, text
+from sqlalchemy.dialects.postgresql import JSON, JSONB
 import time
+
+
+class OSCTurnover(db.Model):
+    __tablename__ = 'osc_turnover'
+
+    id = db.Column(db.Integer, primary_key=True)
+    change = db.Column(db.Numeric(14, 6))
+    cnyPrice = db.Column(db.Numeric(14, 6))
+    createTime = db.Column(db.Integer, index=True)
+    dict_info = db.Column(JSON)
+    mark = db.Column(db.Integer)
+    sell = db.Column(db.Numeric(14, 6))
+    status = db.Column(db.Integer)
+    total = db.Column(db.Numeric(14, 6))
+    turnover = db.Column(db.Numeric(14, 6))
+    exchange = db.Column(db.String(64))
+
+    def __repr__(self):
+        return '<OSCOTC %r>' % self.crypto_currency
+
+    def update(self, **entries):
+        self.__dict__.update(entries)
 
 
 class OSCOTC(db.Model):
