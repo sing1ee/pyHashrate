@@ -4,10 +4,11 @@ from flask import render_template, jsonify
 from config import app, db
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate,MigrateCommand
-from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price
+from model import query_last_n_days, query_buy, query_sell, buy_max_price, sell_min_price, query_turnover
 from itertools import groupby
 import simplejson as json
 from decimal import Decimal
+from itertools import repeat
 import collections
 import time
 import sys
@@ -49,12 +50,28 @@ def data_json():
 
 @app.route('/turnover.json')
 def turnover_json():
-    legends = ['买方最高价', '卖方最低价']
+
     start = int(time.time()) - 5 * 86400  # 5 days
+    hr = query_turnover(start)
+    group_all = collections.defaultdict(list)
+    for ot in ret:
+        group_all[ot.exchange].append(ot)
+    legends = group_all.keys()
+    
+    series, x_axis = [], []
+    total_data = list(repeat(0, group_all.values()[0]))
+    for key in legends:
+        group = group_all[key]
+        sorted(group, key = lambda x: x.created_at)
+        x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
+        series.append({'name': key, 'type': 'line', 'data': map(lambda x: x.turnover, group)})
+        for i in range(0, len(group)):
+            total_data[i] += group[i].turnover
 
-
-
+    legends.append('total')
+    series.append({'name': 'total', 'type': 'line', 'data': total_data})
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
+
 
 @app.route('/osc.json')
 def osc_json():

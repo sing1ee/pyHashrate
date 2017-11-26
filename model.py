@@ -96,6 +96,10 @@ def query_last_n_days(days=3):
         .order_by(asc(HashrateStat.created_at)).all()
 
 
+def query_turnover(start):
+    return OSCTurnover.query.filter(OSCTurnover.created_at >= start).all()
+
+
 def query_buy(start=0):
     sql = text('select max(price), group_label from osc_otc where is_buy=TRUE and created_at>%d group by group_label order by group_label asc;' % start)
     return map(lambda x: (x[0], x[1]), db.engine.execute(sql))
