@@ -75,7 +75,7 @@ def turnover_json():
 @app.route('/osc.json')
 def osc_json():
     legends = ['买方最高价', '卖方最低价']
-    start = int(time.time()) - 5 * 86400  # 5 days
+    start = int(time.time()) - 3 * 86400  # 5 days
 
     buy_data = query_buy(start=start)
     sell_data = query_sell(start=start)
