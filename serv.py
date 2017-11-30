@@ -58,14 +58,23 @@ def turnover_json():
         group_all[ot.exchange].append(ot)
     legends = group_all.keys()
     series, x_axis = [], []
-    total_data = list(repeat(0, len(group_all.values()[0])))
+    max_len = 0
+    for key in legends:
+        group = group_all[key]
+        if len(group) > max_len:
+            max_len = len(group)
+    total_data = list(repeat(0, max_len))
     for key in legends:
         group = group_all[key]
         sorted(group, key = lambda x: x.created_at)
         x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
         series.append({'name': key, 'type': 'line', 'data': map(lambda x: x.turnover, group)})
-        for i in range(0, len(group)):
-            total_data[i] += group[i].turnover
+        for i in range(0, max_len):
+            if i >= len(group):
+                total_data[i] += 0
+            else:
+                total_data[i] += group[i].turnover
+
 
     legends.append('total')
     series.append({'name': 'total', 'type': 'line', 'data': total_data})
