@@ -59,7 +59,8 @@ def data_json():
             else:
                 total_hashrate[i] += hashrate[i]
     
-    series.append({'name': '总算力', 'type': 'line', 'data': map(lambda x: x.hashrate, group)})
+    legends.append('总算力')
+    series.append({'name': '总算力', 'type': 'line', 'data': total_hashrate})
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
