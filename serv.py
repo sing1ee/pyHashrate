@@ -38,8 +38,13 @@ def data_json():
     legends = group_all.keys()
     series = []
 
-    total_hashrate = list(repeat(0, len(group_all.values()[0])))
+    max_len = 0
+    for key in legends:
+        group = group_all[key]
+        if len(group) > max_len:
+            max_len = len(group)
 
+    total_hashrate = list(repeat(0, max_len))
     x_axis = []
     for key in legends:
         group = group_all[key]
@@ -47,8 +52,12 @@ def data_json():
         x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
         hashrate = map(lambda x: x.hashrate, group)
         series.append({'name': key, 'type': 'line', 'data': hashrate})
-        for i in range(0, len(hashrate)):
-            total_hashrate[i] += hashrate[i]
+        for i in range(0, max_len):
+            if i >= len(hashrate):
+                print 'not equal'
+                total_hashrate[i] += 0
+            else:
+                total_hashrate[i] += hashrate[i]
     
     series.append({'name': '总算力', 'type': 'line', 'data': map(lambda x: x.hashrate, group)})
 
@@ -78,6 +87,7 @@ def turnover_json():
         series.append({'name': key, 'type': 'line', 'data': map(lambda x: x.turnover, group)})
         for i in range(0, max_len):
             if i >= len(group):
+                print 'not equal'
                 total_data[i] += 0
             else:
                 total_data[i] += group[i].turnover
