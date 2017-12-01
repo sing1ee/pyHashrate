@@ -68,31 +68,30 @@ def turnover_json():
     start = int(time.time()) - 5 * 86400  # 5 days
     ret = query_turnover(start)
     group_all = collections.defaultdict(list)
+    x_axis = []
     for ot in ret:
         group_all[ot.exchange].append(ot)
+        x_axis.append(ot.created_at)
     legends = group_all.keys()
-    series, x_axis = [], []
-    max_len = 0
+    series, x_axis = [], sorted(list(set(x_axis)))
+    total_data = list(repeat(0, len(x_axis)))
     for key in legends:
-        group = group_all[key]
-        if len(group) > max_len:
-            max_len = len(group)
-    total_data = list(repeat(0, max_len))
-    for key in legends:
-        group = group_all[key]
-        sorted(group, key = lambda x: x.created_at)
-        x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
-        series.append({'name': key, 'type': 'line', 'data': map(lambda x: x.turnover, group)})
-        for i in range(0, max_len):
-            if i >= len(group):
-                print 'not equal'
-                total_data[i] += 0
+        group = {}
+        for x in group_all[key]:
+            group[x.created_at] = x
+        turnover = []
+        for x in x_axis:
+            if x in group:
+                turnover.append(group[x].turnover)
             else:
-                total_data[i] += group[i].turnover
+                turnover.append(0)
+        series.append({'name': key, 'type': 'line', 'data': turnover})
+        for i in range(0, len(x_axis)):
+            total_data[i] += group[i].turnover
 
-
-    legends.append('total')
-    series.append({'name': 'total', 'type': 'line', 'data': total_data})
+    legends.append('总交易量')
+    series.append({'name': '总交易量', 'type': 'line', 'data': total_data})
+    x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x)), x_axis)
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
 
