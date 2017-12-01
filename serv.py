@@ -33,35 +33,32 @@ def hash():
 def data_json():
     ret = query_last_n_days(3)
     group_all = collections.defaultdict(list)
+    x_axis = []
     for hr in ret:
         group_all[hr.relayed_by].append(hr)
+        x_axis.append(hr.created_at)
     legends = group_all.keys()
     series = []
+    x_axis = sorted(list(set(x_axis)))
 
-    max_len = 0
+    total_hashrate = list(repeat(0, len(x_axis)))
     for key in legends:
-        group = group_all[key]
-        if len(group) > max_len:
-            max_len = len(group)
-
-    total_hashrate = list(repeat(0, max_len))
-    x_axis = []
-    for key in legends:
-        group = group_all[key]
-        sorted(group, key = lambda x: x.created_at)
-        x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
-        hashrate = map(lambda x: x.hashrate, group)
-        series.append({'name': key, 'type': 'line', 'data': hashrate})
-        for i in range(0, max_len):
-            if i >= len(hashrate):
-                print 'not equal'
-                total_hashrate[i] += 0
+        group = {}
+        for hr in group_all[key]:
+            group[hr.created_at] = hr
+        hashrate = []
+        for x in x_axis:
+            if x in x_axis:
+                hashrate.append(group[x])
             else:
-                total_hashrate[i] += hashrate[i]
+                hashrate.append(0)
+        series.append({'name': key, 'type': 'line', 'data': hashrate})
+        for i in range(0, len(x_axis)):
+            total_hashrate[i] += hashrate[i]
     
     legends.append('总算力')
     series.append({'name': '总算力', 'type': 'line', 'data': total_hashrate})
-
+    x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x)), x_axis)
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
 
