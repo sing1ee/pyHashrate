@@ -49,7 +49,7 @@ def data_json():
         hashrate = []
         for x in x_axis:
             if x in group:
-                hashrate.append(group[x])
+                hashrate.append(group[x].hashrate)
             else:
                 hashrate.append(0)
         series.append({'name': key, 'type': 'line', 'data': hashrate})
