@@ -87,7 +87,7 @@ def turnover_json():
                 turnover.append(0)
         series.append({'name': key, 'type': 'line', 'data': turnover})
         for i in range(0, len(x_axis)):
-            total_data[i] += group[i].turnover
+            total_data[i] += turnover[i]
 
     legends.append('总交易量')
     series.append({'name': '总交易量', 'type': 'line', 'data': total_data})
