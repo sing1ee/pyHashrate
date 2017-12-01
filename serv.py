@@ -48,7 +48,7 @@ def data_json():
             group[hr.created_at] = hr
         hashrate = []
         for x in x_axis:
-            if x in x_axis:
+            if x in group:
                 hashrate.append(group[x])
             else:
                 hashrate.append(0)
