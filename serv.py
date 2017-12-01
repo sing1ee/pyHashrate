@@ -38,12 +38,19 @@ def data_json():
     legends = group_all.keys()
     series = []
 
+    total_hashrate = list(repeat(0, len(group_all.values()[0])))
+
     x_axis = []
     for key in legends:
         group = group_all[key]
         sorted(group, key = lambda x: x.created_at)
         x_axis = map(lambda x: time.strftime("%d日%H时%M分", time.localtime(x.created_at)), group)
-        series.append({'name': key, 'type': 'line', 'data': map(lambda x: x.hashrate, group)})
+        hashrate = map(lambda x: x.hashrate, group)
+        series.append({'name': key, 'type': 'line', 'data': hashrate})
+        for i in range(0, len(hashrate)):
+            total_hashrate[i] += hashrate[i]
+    
+    series.append({'name': '总算力', 'type': 'line', 'data': map(lambda x: x.hashrate, group)})
 
     return jsonify({"legends": legends, "series": series, "x_axis": x_axis})
 
