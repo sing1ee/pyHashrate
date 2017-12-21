@@ -1,41 +1,23 @@
-import requests
-import json
-import time
-import traceback
+# -*- coding: utf-8 -*-
 
-buy_payload = {"crypto_currency": "OSC",
-               "trade_currency": "CNY",
-               "is_buy": 'true',
-               "offset": 0,
-               "limit": 8,
-               }
-sell_payload = {"crypto_currency": "OSC",
-               "trade_currency": "CNY",
-               "is_buy": 'false',
-               "offset": 0,
-               "limit": 8,
-               }
-
-cnt = 0
-with open("firefoxOSC.json", 'a+') as w:
-    while True:
-        try:
-            print cnt
-            cnt += 1
-            br = requests.post('https://otc.firefoxotc.com/api/market/list', data=buy_payload)
-            bdata = br.json()
-            sr = requests.post('https://otc.firefoxotc.com/api/market/list', data=sell_payload)
-            print sr
-            sdata = sr.json()
-            print bdata
-            print sdata
-            if 'data' not in bdata or 'lists' not in bdata['data']\
-                    or 'data' not in sdata or 'lists' not in sdata['data']:
+for x1 in range(1, 9):
+    x2 = 9 - x1
+    for x3 in range(1, 9):
+        if x3 not in (x1, x2):
+            x4 = 7 - x3
+            if x4 < 1 or x4 > 8 or x4 in (x1, x2, x3):
                 continue
-            rows = bdata['data']['lists']
-            rows.append(sdata['data']['lists'])
-            w.write(json.dumps(rows) + "\n")
-        except:
-            traceback.print_exc()
-            pass
-        time.sleep(10)
+            for x5 in range(1, 9):
+                if x5 not in (x1, x2, x3, x4):
+                    x6 = x5 - 1
+                    if x6 < 1 or x6 > 8 or x6 in (x1, x2, x3, x4, x5):
+                        continue
+                    for x7 in range(1, 9):
+                        if x7 not in (x1, x2, x3, x4, x5, x6):
+                            x8 = x7 - 2
+                            if x8 not in (x1, x2, x3, x4, x5, x6, x7) and x8 > 0 and x8 < 8:
+                                print "(%d) + (%d) = 9" % (x1, x2)
+                                print "(%d) + (%d) = 7" % (x3, x4)
+                                print "(%d) - (%d) = 1" % (x5, x6)
+                                print "(%d) - (%d) = 2" % (x7, x8)
+                                print "+++++++++++++++++++++++++++"
